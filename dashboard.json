@@ -1,0 +1,1818 @@
+{
+    "annotations": {
+      "list": [
+        {
+          "builtIn": 1,
+          "datasource": "-- Grafana --",
+          "enable": true,
+          "hide": true,
+          "iconColor": "rgba(0, 211, 255, 1)",
+          "name": "Annotations & Alerts",
+          "target": {
+            "limit": 100,
+            "matchAny": false,
+            "tags": [],
+            "type": "dashboard"
+          },
+          "type": "dashboard"
+        }
+      ]
+    },
+    "editable": true,
+    "fiscalYearStartMonth": 0,
+    "graphTooltip": 0,
+    "id": 18,
+    "links": [],
+    "liveNow": false,
+    "panels": [
+      {
+        "gridPos": {
+          "h": 12,
+          "w": 13,
+          "x": 0,
+          "y": 0
+        },
+        "id": 5,
+        "options": {
+          "content": "<div>\n  <img src=\"http://localhost:5001/camera\" width=\"100%\">\n</div>",
+          "mode": "html"
+        },
+        "pluginVersion": "8.5.0-pre",
+        "title": "Drone Camera Feed",
+        "type": "text"
+      },
+      {
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            }
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 3,
+          "w": 7,
+          "x": 13,
+          "y": 0
+        },
+        "id": 17,
+        "options": {
+          "inlineEditing": false,
+          "root": {
+            "anchor": {
+              "left": true,
+              "top": true
+            },
+            "elements": [
+              {
+                "anchor": {
+                  "left": true,
+                  "top": true
+                },
+                "config": {
+                  "text": {
+                    "fixed": "Take Picture"
+                  }
+                },
+                "name": "Picture",
+                "placement": {
+                  "height": 37,
+                  "left": 32,
+                  "top": 16,
+                  "width": 118
+                },
+                "type": "button"
+              },
+              {
+                "anchor": {
+                  "left": true,
+                  "top": true
+                },
+                "config": {
+                  "text": {
+                    "fixed": "Return Home"
+                  }
+                },
+                "name": "Home",
+                "placement": {
+                  "height": 37,
+                  "left": 211,
+                  "top": 16,
+                  "width": 118
+                },
+                "type": "button"
+              },
+              {
+                "anchor": {
+                  "left": true,
+                  "top": true
+                },
+                "config": {
+                  "text": {
+                    "fixed": "Land Now"
+                  }
+                },
+                "name": "Land",
+                "placement": {
+                  "height": 37,
+                  "left": 385,
+                  "top": 16,
+                  "width": 103
+                },
+                "type": "button"
+              }
+            ],
+            "name": "Element 1639021253936",
+            "placement": {
+              "height": 100,
+              "left": 0,
+              "top": 0,
+              "width": 100
+            },
+            "type": "group"
+          }
+        },
+        "title": "Master Controls",
+        "type": "canvas"
+      },
+      {
+        "datasource": {
+          "type": "datasource",
+          "uid": "grafana"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "text",
+                  "value": null
+                },
+                {
+                  "color": "dark-green",
+                  "value": 1
+                }
+              ]
+            }
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 3,
+          "w": 4,
+          "x": 20,
+          "y": 0
+        },
+        "id": 15,
+        "options": {
+          "inlineEditing": false,
+          "root": {
+            "anchor": {
+              "left": true,
+              "top": true
+            },
+            "background": {
+              "color": {
+                "fixed": "transparent"
+              }
+            },
+            "elements": [
+              {
+                "anchor": {
+                  "left": true,
+                  "top": true
+                },
+                "config": {
+                  "fill": {
+                    "field": "status.signal",
+                    "fixed": "#FFF899"
+                  },
+                  "path": {
+                    "fixed": "img/icons/unicons/circle.svg",
+                    "mode": "fixed"
+                  }
+                },
+                "name": "Signal LED",
+                "placement": {
+                  "height": 45,
+                  "left": 83,
+                  "top": 9,
+                  "width": 49
+                },
+                "type": "icon"
+              },
+              {
+                "anchor": {
+                  "left": true,
+                  "top": true
+                },
+                "config": {
+                  "fill": {
+                    "field": "status.battery",
+                    "fixed": "#FFF899"
+                  },
+                  "path": {
+                    "fixed": "img/icons/unicons/circle.svg",
+                    "mode": "fixed"
+                  }
+                },
+                "name": "Battery LED",
+                "placement": {
+                  "height": 45,
+                  "left": 224,
+                  "top": 9,
+                  "width": 49
+                },
+                "type": "icon"
+              },
+              {
+                "anchor": {
+                  "left": true,
+                  "top": true
+                },
+                "background": {
+                  "color": {
+                    "fixed": "transparent"
+                  }
+                },
+                "config": {
+                  "align": "left",
+                  "text": {
+                    "fixed": "Signal"
+                  },
+                  "valign": "middle"
+                },
+                "name": "Signal Label",
+                "placement": {
+                  "height": 43,
+                  "left": 20,
+                  "top": 11,
+                  "width": 57
+                },
+                "type": "text-box"
+              },
+              {
+                "anchor": {
+                  "left": true,
+                  "top": true
+                },
+                "background": {
+                  "color": {
+                    "fixed": "transparent"
+                  }
+                },
+                "config": {
+                  "align": "left",
+                  "text": {
+                    "fixed": "Battery"
+                  },
+                  "valign": "middle"
+                },
+                "name": "Battery Label",
+                "placement": {
+                  "height": 43,
+                  "left": 166,
+                  "top": 11,
+                  "width": 57
+                },
+                "type": "text-box"
+              }
+            ],
+            "name": "Element 1639019865239",
+            "placement": {
+              "height": 100,
+              "left": 0,
+              "top": 0,
+              "width": 100
+            },
+            "type": "group"
+          }
+        },
+        "targets": [
+          {
+            "channel": "stream/webots/stream",
+            "datasource": {
+              "type": "datasource",
+              "uid": "grafana"
+            },
+            "filter": {
+              "fields": [
+                "status.signal",
+                "status.battery"
+              ]
+            },
+            "queryType": "measurements",
+            "refId": "A"
+          }
+        ],
+        "title": "Status Indicators",
+        "type": "canvas"
+      },
+      {
+        "datasource": {
+          "type": "datasource",
+          "uid": "grafana"
+        },
+        "description": "",
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            }
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 9,
+          "w": 11,
+          "x": 13,
+          "y": 3
+        },
+        "id": 3,
+        "options": {
+          "inlineEditing": false,
+          "root": {
+            "anchor": {
+              "left": true,
+              "top": true
+            },
+            "border": {
+              "width": 0
+            },
+            "elements": [
+              {
+                "anchor": {
+                  "left": true,
+                  "top": true
+                },
+                "config": {
+                  "bLeftRotorRPM": {
+                    "field": "rotor.velocity.rear_left",
+                    "mode": "field"
+                  },
+                  "bRightRotorRPM": {
+                    "field": "rotor.velocity.rear_right",
+                    "mode": "field"
+                  },
+                  "fLeftRotorRPM": {
+                    "field": "rotor.velocity.front_left",
+                    "fixed": 0,
+                    "mode": "field"
+                  },
+                  "fRightRotorRPM": {
+                    "field": "rotor.velocity.front_right",
+                    "mode": "field"
+                  },
+                  "text": {
+                    "field": "A-series",
+                    "mode": "mod"
+                  },
+                  "yawAngle": {
+                    "field": "imu.yaw",
+                    "mode": "field"
+                  }
+                },
+                "name": "Drone",
+                "placement": {
+                  "height": 156,
+                  "left": 351,
+                  "top": 60,
+                  "width": 149
+                },
+                "type": "drone"
+              },
+              {
+                "anchor": {
+                  "left": true,
+                  "top": true
+                },
+                "background": {
+                  "color": {
+                    "fixed": "transparent"
+                  }
+                },
+                "config": {
+                  "align": "left",
+                  "text": {
+                    "field": "rotor.fLeft",
+                    "mode": "field"
+                  },
+                  "valign": "middle"
+                },
+                "name": "fLeftRotorRPM",
+                "placement": {
+                  "height": 30,
+                  "left": 320,
+                  "top": 86,
+                  "width": 31
+                },
+                "type": "text-box"
+              },
+              {
+                "anchor": {
+                  "left": true,
+                  "top": true
+                },
+                "background": {
+                  "color": {
+                    "fixed": "transparent"
+                  }
+                },
+                "config": {
+                  "align": "left",
+                  "text": {
+                    "field": "rotor.fRight",
+                    "mode": "field"
+                  },
+                  "valign": "middle"
+                },
+                "name": "fRightRotorRPM",
+                "placement": {
+                  "height": 30,
+                  "left": 503,
+                  "top": 86,
+                  "width": 31
+                },
+                "type": "text-box"
+              },
+              {
+                "anchor": {
+                  "left": true,
+                  "top": true
+                },
+                "background": {
+                  "color": {
+                    "fixed": "transparent"
+                  }
+                },
+                "config": {
+                  "align": "left",
+                  "text": {
+                    "field": "rotor.bLeft",
+                    "mode": "field"
+                  },
+                  "valign": "middle"
+                },
+                "name": "bLeftRotorRPM",
+                "placement": {
+                  "height": 30,
+                  "left": 318,
+                  "top": 163,
+                  "width": 31
+                },
+                "type": "text-box"
+              },
+              {
+                "anchor": {
+                  "left": true,
+                  "top": true
+                },
+                "background": {
+                  "color": {
+                    "fixed": "transparent"
+                  }
+                },
+                "config": {
+                  "align": "left",
+                  "text": {
+                    "field": "rotor.bRight",
+                    "mode": "field"
+                  },
+                  "valign": "middle"
+                },
+                "name": "bRightRotorRPM",
+                "placement": {
+                  "height": 30,
+                  "left": 503,
+                  "top": 163,
+                  "width": 31
+                },
+                "type": "text-box"
+              },
+              {
+                "anchor": {
+                  "left": true,
+                  "top": true
+                },
+                "config": {
+                  "rollAngle": {
+                    "field": "imu.roll",
+                    "mode": "field"
+                  }
+                },
+                "name": "Drone Front",
+                "placement": {
+                  "height": 59,
+                  "left": 28,
+                  "top": 95,
+                  "width": 257
+                },
+                "type": "droneFront"
+              },
+              {
+                "anchor": {
+                  "left": true,
+                  "top": true
+                },
+                "config": {
+                  "pitchAngle": {
+                    "field": "imu.pitch",
+                    "mode": "field"
+                  },
+                  "rollAngle": {
+                    "field": "imu.pitch",
+                    "mode": "field"
+                  }
+                },
+                "name": "Drone Side",
+                "placement": {
+                  "height": 64,
+                  "left": 550,
+                  "top": 93,
+                  "width": 267
+                },
+                "type": "droneSide"
+              },
+              {
+                "anchor": {
+                  "left": true,
+                  "top": true
+                },
+                "background": {
+                  "color": {
+                    "fixed": "transparent"
+                  },
+                  "image": {
+                    "field": "",
+                    "fixed": "",
+                    "mode": "fixed"
+                  }
+                },
+                "config": {
+                  "align": "left",
+                  "text": {
+                    "fixed": "Drone Front View"
+                  },
+                  "valign": "middle"
+                },
+                "name": "Drone Front View Label",
+                "placement": {
+                  "height": 53,
+                  "left": 99,
+                  "top": 234,
+                  "width": 110
+                },
+                "type": "text-box"
+              },
+              {
+                "anchor": {
+                  "left": true,
+                  "top": true
+                },
+                "background": {
+                  "color": {
+                    "fixed": "transparent"
+                  },
+                  "image": {
+                    "field": "",
+                    "fixed": "",
+                    "mode": "fixed"
+                  }
+                },
+                "config": {
+                  "align": "left",
+                  "text": {
+                    "fixed": "Drone Side View"
+                  },
+                  "valign": "middle"
+                },
+                "name": "Drone Side View Label",
+                "placement": {
+                  "height": 53,
+                  "left": 632,
+                  "top": 235,
+                  "width": 110
+                },
+                "type": "text-box"
+              },
+              {
+                "anchor": {
+                  "left": true,
+                  "top": true
+                },
+                "background": {
+                  "color": {
+                    "fixed": "transparent"
+                  },
+                  "image": {
+                    "field": "",
+                    "fixed": "",
+                    "mode": "fixed"
+                  }
+                },
+                "config": {
+                  "align": "left",
+                  "text": {
+                    "fixed": "Drone Top View"
+                  },
+                  "valign": "middle"
+                },
+                "name": "Drone Top View Label",
+                "placement": {
+                  "height": 38,
+                  "left": 377,
+                  "top": 242,
+                  "width": 105
+                },
+                "type": "text-box"
+              },
+              {
+                "anchor": {
+                  "left": true,
+                  "top": true
+                },
+                "background": {
+                  "color": {
+                    "fixed": "transparent"
+                  },
+                  "image": {
+                    "field": "",
+                    "fixed": "",
+                    "mode": "fixed"
+                  }
+                },
+                "config": {
+                  "align": "left",
+                  "text": {
+                    "fixed": "Roll Angle (°)"
+                  },
+                  "valign": "middle"
+                },
+                "name": "Roll Angle Label",
+                "placement": {
+                  "height": 38,
+                  "left": 85,
+                  "top": 7,
+                  "width": 84
+                },
+                "type": "text-box"
+              },
+              {
+                "anchor": {
+                  "left": true,
+                  "top": true
+                },
+                "background": {
+                  "color": {
+                    "fixed": "transparent"
+                  },
+                  "image": {
+                    "field": "",
+                    "fixed": "",
+                    "mode": "fixed"
+                  }
+                },
+                "config": {
+                  "align": "left",
+                  "text": {
+                    "fixed": "Pitch Angle (°)"
+                  },
+                  "valign": "middle"
+                },
+                "name": "Pitch Angle Label",
+                "placement": {
+                  "height": 38,
+                  "left": 635,
+                  "top": 8,
+                  "width": 93
+                },
+                "type": "text-box"
+              },
+              {
+                "anchor": {
+                  "left": true,
+                  "top": true
+                },
+                "background": {
+                  "color": {
+                    "fixed": "transparent"
+                  },
+                  "image": {
+                    "field": "",
+                    "fixed": "",
+                    "mode": "fixed"
+                  }
+                },
+                "config": {
+                  "align": "left",
+                  "text": {
+                    "fixed": "Yaw Angle (°)"
+                  },
+                  "valign": "middle"
+                },
+                "name": "Yaw Angle Label",
+                "placement": {
+                  "height": 38,
+                  "left": 361,
+                  "top": 8,
+                  "width": 93
+                },
+                "type": "text-box"
+              },
+              {
+                "anchor": {
+                  "left": true,
+                  "top": true
+                },
+                "background": {
+                  "color": {
+                    "fixed": "transparent"
+                  },
+                  "image": {
+                    "field": "",
+                    "fixed": "",
+                    "mode": "fixed"
+                  }
+                },
+                "config": {
+                  "align": "left",
+                  "text": {
+                    "field": "imu.roll",
+                    "fixed": "Roll Angle (°)",
+                    "mode": "field"
+                  },
+                  "valign": "middle"
+                },
+                "name": "Roll Angle",
+                "placement": {
+                  "height": 38,
+                  "left": 173,
+                  "top": 8,
+                  "width": 53
+                },
+                "type": "text-box"
+              },
+              {
+                "anchor": {
+                  "left": true,
+                  "top": true
+                },
+                "background": {
+                  "color": {
+                    "fixed": "transparent"
+                  },
+                  "image": {
+                    "field": "",
+                    "fixed": "",
+                    "mode": "fixed"
+                  }
+                },
+                "config": {
+                  "align": "left",
+                  "text": {
+                    "field": "imu.yaw",
+                    "fixed": "Roll Angle (°)",
+                    "mode": "field"
+                  },
+                  "valign": "middle"
+                },
+                "name": "Yaw Angle",
+                "placement": {
+                  "height": 38,
+                  "left": 455,
+                  "top": 9,
+                  "width": 53
+                },
+                "type": "text-box"
+              },
+              {
+                "anchor": {
+                  "left": true,
+                  "top": true
+                },
+                "background": {
+                  "color": {
+                    "fixed": "transparent"
+                  },
+                  "image": {
+                    "field": "",
+                    "fixed": "",
+                    "mode": "fixed"
+                  }
+                },
+                "config": {
+                  "align": "left",
+                  "text": {
+                    "field": "imu.pitch",
+                    "fixed": "Roll Angle (°)",
+                    "mode": "field"
+                  },
+                  "valign": "middle"
+                },
+                "name": "Pitch Angle",
+                "placement": {
+                  "height": 38,
+                  "left": 734,
+                  "top": 9,
+                  "width": 53
+                },
+                "type": "text-box"
+              },
+              {
+                "anchor": {
+                  "left": true,
+                  "top": true
+                },
+                "background": {
+                  "color": {
+                    "fixed": "transparent"
+                  },
+                  "image": {
+                    "field": "",
+                    "fixed": "",
+                    "mode": "fixed"
+                  }
+                },
+                "config": {
+                  "align": "left",
+                  "text": {
+                    "field": "rotor.velocity.front_left",
+                    "fixed": "Roll Angle (°)",
+                    "mode": "field"
+                  },
+                  "valign": "middle"
+                },
+                "name": "FLeftRPM",
+                "placement": {
+                  "height": 38,
+                  "left": 310,
+                  "top": 50,
+                  "width": 41
+                },
+                "type": "text-box"
+              },
+              {
+                "anchor": {
+                  "left": true,
+                  "top": true
+                },
+                "background": {
+                  "color": {
+                    "fixed": "transparent"
+                  },
+                  "image": {
+                    "field": "",
+                    "fixed": "",
+                    "mode": "fixed"
+                  }
+                },
+                "config": {
+                  "align": "left",
+                  "text": {
+                    "field": "rotor.velocity.front_right",
+                    "fixed": "Roll Angle (°)",
+                    "mode": "field"
+                  },
+                  "valign": "middle"
+                },
+                "name": "FRightRPM",
+                "placement": {
+                  "height": 38,
+                  "left": 503,
+                  "top": 52,
+                  "width": 41
+                },
+                "type": "text-box"
+              },
+              {
+                "anchor": {
+                  "left": true,
+                  "top": true
+                },
+                "background": {
+                  "color": {
+                    "fixed": "transparent"
+                  },
+                  "image": {
+                    "field": "",
+                    "fixed": "",
+                    "mode": "fixed"
+                  }
+                },
+                "config": {
+                  "align": "left",
+                  "text": {
+                    "field": "rotor.velocity.rear_left",
+                    "fixed": "Roll Angle (°)",
+                    "mode": "field"
+                  },
+                  "valign": "middle"
+                },
+                "name": "RLeftRPM",
+                "placement": {
+                  "height": 38,
+                  "left": 308,
+                  "top": 184,
+                  "width": 41
+                },
+                "type": "text-box"
+              },
+              {
+                "anchor": {
+                  "left": true,
+                  "top": true
+                },
+                "background": {
+                  "color": {
+                    "fixed": "transparent"
+                  },
+                  "image": {
+                    "field": "",
+                    "fixed": "",
+                    "mode": "fixed"
+                  }
+                },
+                "config": {
+                  "align": "left",
+                  "text": {
+                    "field": "rotor.velocity.rear_right",
+                    "fixed": "Roll Angle (°)",
+                    "mode": "field"
+                  },
+                  "valign": "middle"
+                },
+                "name": "RRightRPM",
+                "placement": {
+                  "height": 37,
+                  "left": 506,
+                  "top": 187,
+                  "width": 41
+                },
+                "type": "text-box"
+              },
+              {
+                "anchor": {
+                  "left": true,
+                  "top": true
+                },
+                "background": {
+                  "color": {
+                    "fixed": "transparent"
+                  },
+                  "image": {
+                    "field": "",
+                    "fixed": "",
+                    "mode": "fixed"
+                  }
+                },
+                "config": {
+                  "align": "left",
+                  "text": {
+                    "field": "rotor.velocity.rear_right",
+                    "fixed": "RPM",
+                    "mode": "fixed"
+                  },
+                  "valign": "middle"
+                },
+                "name": "RPM Label",
+                "placement": {
+                  "height": 38,
+                  "left": 507,
+                  "top": 69,
+                  "width": 31
+                },
+                "type": "text-box"
+              },
+              {
+                "anchor": {
+                  "left": true,
+                  "top": true
+                },
+                "background": {
+                  "color": {
+                    "fixed": "transparent"
+                  },
+                  "image": {
+                    "field": "",
+                    "fixed": "",
+                    "mode": "fixed"
+                  }
+                },
+                "config": {
+                  "align": "left",
+                  "text": {
+                    "field": "rotor.velocity.rear_right",
+                    "fixed": "RPM",
+                    "mode": "fixed"
+                  },
+                  "valign": "middle"
+                },
+                "name": "RPM Label2",
+                "placement": {
+                  "height": 37,
+                  "left": 507,
+                  "top": 204,
+                  "width": 31
+                },
+                "type": "text-box"
+              },
+              {
+                "anchor": {
+                  "left": true,
+                  "top": true
+                },
+                "background": {
+                  "color": {
+                    "fixed": "transparent"
+                  },
+                  "image": {
+                    "field": "",
+                    "fixed": "",
+                    "mode": "fixed"
+                  }
+                },
+                "config": {
+                  "align": "left",
+                  "text": {
+                    "field": "rotor.velocity.rear_right",
+                    "fixed": "RPM",
+                    "mode": "fixed"
+                  },
+                  "valign": "middle"
+                },
+                "name": "RPM Label3",
+                "placement": {
+                  "height": 38,
+                  "left": 313,
+                  "top": 202,
+                  "width": 31
+                },
+                "type": "text-box"
+              },
+              {
+                "anchor": {
+                  "left": true,
+                  "top": true
+                },
+                "background": {
+                  "color": {
+                    "fixed": "transparent"
+                  },
+                  "image": {
+                    "field": "",
+                    "fixed": "",
+                    "mode": "fixed"
+                  }
+                },
+                "config": {
+                  "align": "left",
+                  "text": {
+                    "field": "rotor.velocity.rear_right",
+                    "fixed": "RPM",
+                    "mode": "fixed"
+                  },
+                  "valign": "middle"
+                },
+                "name": "RPM Label4",
+                "placement": {
+                  "height": 38,
+                  "left": 312,
+                  "top": 67,
+                  "width": 31
+                },
+                "type": "text-box"
+              }
+            ],
+            "name": "Element 0",
+            "placement": {
+              "height": 100,
+              "left": 0,
+              "top": 0,
+              "width": 100
+            }
+          }
+        },
+        "targets": [
+          {
+            "channel": "stream/webots/stream",
+            "datasource": {
+              "type": "datasource",
+              "uid": "grafana"
+            },
+            "queryType": "measurements",
+            "refId": "A"
+          }
+        ],
+        "title": "Drone Attitude Telemetry",
+        "type": "canvas"
+      },
+      {
+        "datasource": {
+          "type": "datasource",
+          "uid": "grafana"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "custom": {
+              "hideFrom": {
+                "legend": false,
+                "tooltip": false,
+                "viz": false
+              }
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            }
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 12,
+          "w": 13,
+          "x": 0,
+          "y": 12
+        },
+        "id": 7,
+        "maxDataPoints": 1,
+        "options": {
+          "basemap": {
+            "config": {
+              "server": "world-imagery"
+            },
+            "name": "Layer 0",
+            "type": "esri-xyz"
+          },
+          "controls": {
+            "mouseWheelZoom": true,
+            "showAttribution": true,
+            "showDebug": false,
+            "showScale": false,
+            "showZoom": true
+          },
+          "layers": [
+            {
+              "config": {
+                "showLegend": true,
+                "style": {
+                  "color": {
+                    "fixed": "red"
+                  },
+                  "opacity": 1,
+                  "rotation": {
+                    "field": "gps.heading",
+                    "fixed": 5,
+                    "max": 360,
+                    "min": -360,
+                    "mode": "mod"
+                  },
+                  "size": {
+                    "fixed": 15,
+                    "max": 15,
+                    "min": 2
+                  },
+                  "symbol": {
+                    "fixed": "img/icons/iot/drone.svg",
+                    "mode": "fixed"
+                  },
+                  "textConfig": {
+                    "fontSize": 12,
+                    "offsetX": 0,
+                    "offsetY": 0,
+                    "textAlign": "center",
+                    "textBaseline": "middle"
+                  }
+                }
+              },
+              "location": {
+                "latitude": "gps.latitude",
+                "longitude": "gps.longitude",
+                "mode": "coords"
+              },
+              "name": "Layer 1",
+              "type": "markers"
+            }
+          ],
+          "view": {
+            "id": "coords",
+            "lat": 49.242315,
+            "lon": -123.115136,
+            "zoom": 19.33
+          }
+        },
+        "pluginVersion": "8.5.0-pre",
+        "targets": [
+          {
+            "channel": "stream/webots/stream",
+            "datasource": {
+              "type": "datasource",
+              "uid": "grafana"
+            },
+            "filter": {
+              "fields": [
+                "gps.latitude",
+                "gps.longitude",
+                "gps.heading"
+              ]
+            },
+            "queryType": "measurements",
+            "refId": "A"
+          }
+        ],
+        "title": "Drone Location",
+        "type": "geomap"
+      },
+      {
+        "datasource": {
+          "type": "datasource",
+          "uid": "grafana"
+        },
+        "description": "",
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            }
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 5,
+          "w": 6,
+          "x": 13,
+          "y": 12
+        },
+        "id": 2,
+        "options": {
+          "inlineEditing": false,
+          "root": {
+            "anchor": {
+              "left": true,
+              "top": true
+            },
+            "elements": [
+              {
+                "anchor": {
+                  "left": true,
+                  "top": true
+                },
+                "config": {
+                  "api": {
+                    "data": "{\"action\": \"UP\"}",
+                    "endpoint": "http://localhost:5001/control"
+                  },
+                  "fill": {
+                    "fixed": "text"
+                  },
+                  "path": {
+                    "fixed": "img/icons/unicons/arrow-up.svg",
+                    "mode": "fixed"
+                  }
+                },
+                "name": "Forward",
+                "placement": {
+                  "height": 73,
+                  "left": 134,
+                  "top": -7,
+                  "width": 83
+                },
+                "type": "icon"
+              },
+              {
+                "anchor": {
+                  "left": true,
+                  "top": true
+                },
+                "config": {
+                  "api": {
+                    "data": "{\"action\": \"DOWN\"}",
+                    "endpoint": "http://localhost:5001/control"
+                  },
+                  "fill": {
+                    "fixed": "text"
+                  },
+                  "path": {
+                    "fixed": "img/icons/unicons/arrow-down.svg",
+                    "mode": "fixed"
+                  }
+                },
+                "name": "Backward",
+                "placement": {
+                  "height": 73,
+                  "left": 135,
+                  "top": 84,
+                  "width": 83
+                },
+                "type": "icon"
+              },
+              {
+                "anchor": {
+                  "left": true,
+                  "top": true
+                },
+                "config": {
+                  "api": {
+                    "data": "{\"action\": \"SLEFT\"}",
+                    "endpoint": "http://localhost:5001/control"
+                  },
+                  "fill": {
+                    "fixed": "text"
+                  },
+                  "path": {
+                    "fixed": "img/icons/unicons/arrow-left.svg",
+                    "mode": "fixed"
+                  }
+                },
+                "name": "Left",
+                "placement": {
+                  "height": 73,
+                  "left": 78,
+                  "top": 39,
+                  "width": 83
+                },
+                "type": "icon"
+              },
+              {
+                "anchor": {
+                  "left": true,
+                  "top": true
+                },
+                "config": {
+                  "api": {
+                    "data": "{\"action\": \"SRIGHT\"}",
+                    "endpoint": "http://localhost:5001/control"
+                  },
+                  "fill": {
+                    "fixed": "text"
+                  },
+                  "path": {
+                    "fixed": "img/icons/unicons/arrow-right.svg",
+                    "mode": "fixed"
+                  }
+                },
+                "name": "Right",
+                "placement": {
+                  "height": 73,
+                  "left": 189,
+                  "top": 39,
+                  "width": 83
+                },
+                "type": "icon"
+              },
+              {
+                "anchor": {
+                  "left": true,
+                  "top": true
+                },
+                "config": {
+                  "api": {
+                    "data": "{\"action\": \"SUP\"}",
+                    "endpoint": "http://localhost:5001/control"
+                  },
+                  "fill": {
+                    "fixed": "text"
+                  },
+                  "path": {
+                    "fixed": "img/icons/unicons/angle-double-up.svg",
+                    "mode": "fixed"
+                  }
+                },
+                "name": "Fly Up",
+                "placement": {
+                  "height": 73,
+                  "left": 335,
+                  "top": 1,
+                  "width": 83
+                },
+                "type": "icon"
+              },
+              {
+                "anchor": {
+                  "left": true,
+                  "top": true
+                },
+                "config": {
+                  "api": {
+                    "data": "{\"action\": \"SDOWN\"}",
+                    "endpoint": "http://localhost:5001/control"
+                  },
+                  "fill": {
+                    "fixed": "text"
+                  },
+                  "path": {
+                    "fixed": "img/icons/unicons/angle-double-down.svg",
+                    "mode": "fixed"
+                  }
+                },
+                "name": "Fly Down",
+                "placement": {
+                  "height": 73,
+                  "left": 335,
+                  "top": 76,
+                  "width": 83
+                },
+                "type": "icon"
+              },
+              {
+                "anchor": {
+                  "left": true,
+                  "top": true
+                },
+                "config": {
+                  "api": {
+                    "data": "{\"action\": \"RIGHT\"}",
+                    "endpoint": "http://localhost:5001/control"
+                  },
+                  "fill": {
+                    "fixed": "text"
+                  },
+                  "path": {
+                    "fixed": "img/icons/unicons/arrow-circle-right.svg",
+                    "mode": "fixed"
+                  }
+                },
+                "name": "Clockwise",
+                "placement": {
+                  "height": 73,
+                  "left": 263,
+                  "top": 39,
+                  "width": 83
+                },
+                "type": "icon"
+              },
+              {
+                "anchor": {
+                  "left": true,
+                  "top": true
+                },
+                "config": {
+                  "api": {
+                    "data": "{\"action\": \"LEFT\"}",
+                    "endpoint": "http://localhost:5001/control"
+                  },
+                  "fill": {
+                    "fixed": "text"
+                  },
+                  "path": {
+                    "fixed": "img/icons/unicons/arrow-circle-left.svg",
+                    "mode": "fixed"
+                  }
+                },
+                "name": "Counter-clockwise",
+                "placement": {
+                  "height": 73,
+                  "left": -3,
+                  "top": 40,
+                  "width": 83
+                },
+                "type": "icon"
+              }
+            ],
+            "name": "Element 0",
+            "placement": {
+              "height": 100,
+              "left": 0,
+              "top": 0,
+              "width": 100
+            }
+          }
+        },
+        "targets": [
+          {
+            "channel": "stream/webots/stream",
+            "datasource": {
+              "type": "datasource",
+              "uid": "grafana"
+            },
+            "queryType": "measurements",
+            "refId": "A"
+          }
+        ],
+        "title": "Drone Controller",
+        "type": "canvas"
+      },
+      {
+        "datasource": {
+          "type": "datasource",
+          "uid": "grafana"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "mappings": [],
+            "max": 25,
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "dark-red",
+                  "value": null
+                },
+                {
+                  "color": "dark-green",
+                  "value": 10
+                }
+              ]
+            },
+            "unit": "lengthm"
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 5,
+          "w": 3,
+          "x": 19,
+          "y": 12
+        },
+        "id": 9,
+        "options": {
+          "displayMode": "gradient",
+          "orientation": "auto",
+          "reduceOptions": {
+            "calcs": [
+              "lastNotNull"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "showUnfilled": true
+        },
+        "pluginVersion": "8.5.0-pre",
+        "targets": [
+          {
+            "channel": "stream/webots/stream",
+            "datasource": {
+              "type": "datasource",
+              "uid": "grafana"
+            },
+            "filter": {
+              "fields": [
+                "Time",
+                "gps.altitude"
+              ]
+            },
+            "queryType": "measurements",
+            "refId": "A"
+          }
+        ],
+        "title": "Drone Altitude",
+        "type": "bargauge"
+      },
+      {
+        "datasource": {
+          "type": "datasource",
+          "uid": "grafana"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "thresholds"
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            },
+            "unit": "velocityms"
+          },
+          "overrides": []
+        },
+        "gridPos": {
+          "h": 5,
+          "w": 2,
+          "x": 22,
+          "y": 12
+        },
+        "id": 11,
+        "options": {
+          "orientation": "auto",
+          "reduceOptions": {
+            "calcs": [
+              "lastNotNull"
+            ],
+            "fields": "",
+            "values": false
+          },
+          "showThresholdLabels": false,
+          "showThresholdMarkers": true
+        },
+        "pluginVersion": "8.5.0-pre",
+        "targets": [
+          {
+            "channel": "stream/webots/stream",
+            "datasource": {
+              "type": "datasource",
+              "uid": "grafana"
+            },
+            "filter": {
+              "fields": [
+                "gps.speed"
+              ]
+            },
+            "queryType": "measurements",
+            "refId": "A"
+          }
+        ],
+        "title": "Drone Linear Speed",
+        "type": "gauge"
+      },
+      {
+        "datasource": {
+          "type": "datasource",
+          "uid": "grafana"
+        },
+        "fieldConfig": {
+          "defaults": {
+            "color": {
+              "mode": "palette-classic"
+            },
+            "custom": {
+              "axisLabel": "",
+              "axisPlacement": "auto",
+              "barAlignment": 0,
+              "drawStyle": "line",
+              "fillOpacity": 0,
+              "gradientMode": "none",
+              "hideFrom": {
+                "legend": false,
+                "tooltip": false,
+                "viz": false
+              },
+              "lineInterpolation": "linear",
+              "lineWidth": 1,
+              "pointSize": 5,
+              "scaleDistribution": {
+                "type": "linear"
+              },
+              "showPoints": "auto",
+              "spanNulls": false,
+              "stacking": {
+                "group": "A",
+                "mode": "none"
+              },
+              "thresholdsStyle": {
+                "mode": "off"
+              }
+            },
+            "mappings": [],
+            "thresholds": {
+              "mode": "absolute",
+              "steps": [
+                {
+                  "color": "green",
+                  "value": null
+                },
+                {
+                  "color": "red",
+                  "value": 80
+                }
+              ]
+            },
+            "unit": "rotrads"
+          },
+          "overrides": [
+            {
+              "matcher": {
+                "id": "byName",
+                "options": "gyro.yaw_velocity"
+              },
+              "properties": [
+                {
+                  "id": "custom.axisPlacement",
+                  "value": "right"
+                }
+              ]
+            }
+          ]
+        },
+        "gridPos": {
+          "h": 7,
+          "w": 11,
+          "x": 13,
+          "y": 17
+        },
+        "id": 13,
+        "options": {
+          "legend": {
+            "calcs": [],
+            "displayMode": "list",
+            "placement": "bottom"
+          },
+          "tooltip": {
+            "mode": "single",
+            "sort": "none"
+          }
+        },
+        "targets": [
+          {
+            "channel": "stream/webots/stream",
+            "datasource": {
+              "type": "datasource",
+              "uid": "grafana"
+            },
+            "filter": {
+              "fields": [
+                "Time",
+                "gyro.roll_velocity",
+                "gyro.pitch_velocity",
+                "gyro.yaw_velocity"
+              ]
+            },
+            "queryType": "measurements",
+            "refId": "A"
+          }
+        ],
+        "title": "Gyro Velocities",
+        "type": "timeseries"
+      }
+    ],
+    "refresh": "",
+    "schemaVersion": 35,
+    "style": "dark",
+    "tags": [],
+    "templating": {
+      "list": []
+    },
+    "time": {
+      "from": "now-30s",
+      "to": "now"
+    },
+    "timepicker": {},
+    "timezone": "",
+    "title": "Hackathon - Drone Simulation",
+    "uid": "4NR-lDh7k",
+    "version": 65,
+    "weekStart": ""
+  }
